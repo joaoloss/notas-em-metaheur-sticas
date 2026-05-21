@@ -185,7 +185,8 @@ function hill_climbing() is
 
 - O maior problema do algoritmo é ficar **preso em máximos ou mínimos locais.**
     - Esse é o maior desafio de qualquer algoritmo de otimização
-- Simulated Annealing
+
+# Simulated Annealing
 - É uma versão melhorada do Hill Climbing.
 - Novo conceito: **temperatura**
     - Temperatura alta: o algoritmo aceita até soluções piores com frequência
