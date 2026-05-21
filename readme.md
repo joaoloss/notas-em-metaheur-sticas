@@ -302,7 +302,7 @@ function simulated_annealing() is
       - Possível alteração: se a taxa de mutação for atendida para um indivíduo A, em vez de fazer $A' = A + F(X - Y)$, faz $A' = A + F(X - Y)$, onde Z é um indivíduo escolhido aleatoriamente entre os N melhores indivíduos da geração atual (ou o melhor).
         - Desvantagem: pode acabar caindo em mín/máx locais.
   2. Crossover
-      - Se a taxa de crossover for satisfeita:
+      - Se a taxa de crossover for satisfeita (essa é uma possível forma de crossover, não é a única, em metaheurísticas raramente existem formas fechadas):
       
       <div align="center">
           <img src="imgs/de_mutation.png" width="400" />
