@@ -1,39 +1,37 @@
 # Intro. Heurísticas
 - Os algoritmos de busca BFS e DFS - $O(|E| + |V|)$ - são considerados de **busca cega**: exploram o espaço de estados sem saber se estão chegando perto do objetivo.
-        - Problema disso: em espaços de estados gigantescos a busca cega sofre com a explosão combinatória.
-    - DFS
+  - Problema disso: em espaços de estados gigantescos a busca cega sofre com a explosão combinatória.
+- DFS
+    ```
+    function DFS(G, v) is
+        let S be a stack
+        S.push(v)
+        while S is not empty do
+            v = S.pop()
+            if v is the goal then
+                return v
+            if v is not labeled as discovered then
+                label v as discovered
+                for all edges from v to w in G.adjacentEdges(v) do 
+                    w.parent = v
+                    S.push(w)
+    ```
         
-        ```
-        function DFS(G, v) is
-            let S be a stack
-            S.push(v)
-            while S is not empty do
-                v = S.pop()
-                if v is the goal then
-                    return v
-                if v is not labeled as discovered then
-                    label v as discovered
-                    for all edges from v to w in G.adjacentEdges(v) do 
-                        w.parent = v
-                        S.push(w)
-        ```
-        
-    - BFS
-        
-        ```
-        function BFS(G, v) is
-            let Q be a queue
-            Q.enqueue(v)
-            while Q is not empty do
-                v = Q.dequeue()
-                if v is the goal then
-                    return v
-                if v is not labeled as discovered then
-                    label v as discovered
-                    for all edges from v to w in G.adjacentEdges(v) do 
-                        w.parent = v
-                        Q.enqueue(w)
-        ```
+- BFS
+    ```
+    function BFS(G, v) is
+        let Q be a queue
+        Q.enqueue(v)
+        while Q is not empty do
+            v = Q.dequeue()
+            if v is the goal then
+                return v
+            if v is not labeled as discovered then
+                label v as discovered
+                for all edges from v to w in G.adjacentEdges(v) do 
+                    w.parent = v
+                    Q.enqueue(w)
+    ```
         
 - **Heurísticas**: nada mais é do que uma estimativa informada que ajuda a tomar decisões mais rápidas. Uma regra de ouro que ajuda a guiar uma busca.
 - Objetivo essencial: fornecer soluções factíveis (ou seja, não necessariamente uma solução ótima) em um tempo relativamente pequeno.
@@ -233,11 +231,11 @@ function simulated_annealing() is
 - Uma possível melhoria é avaliar mais de um vizinho por temperatura.
 
 # Metaheurística
-- Problema central de otimização: ótimo local
+- Problema central de otimização: **ótimo local**.
     - Esse é o motivo pelo qual metaheurísticas existem.
 - O principal dilema de toda metaheurística é o equilíbrio entre dois comportamentos opostos:
-    - Exploração (Exploration): diversificar a busca, visitar regiões novas do espaço de soluções. Evita convergência prematura.
-    - Explotação (Exploitation): intensificar a busca, refinar soluções já conhecidas. Melhora a qualidade localmente.
+    - **Exploração** (Exploration): diversificar a busca, visitar regiões novas do espaço de soluções. Evita convergência prematura.
+    - **Explotação** (Exploitation): intensificar a busca, refinar soluções já conhecidas. Melhora a qualidade localmente.
 - Heurísticas e Metaheurística
     - Heurísticas são regras práticas específicas para encontrar boas soluções rapidamente, enquanto metaheurísticas são estratégias gerais que guiam e combinam heurísticas para explorar melhor o espaço de busca.
 - Principais algoritmos:
@@ -246,7 +244,7 @@ function simulated_annealing() is
     - Enxame de passáros
     - Busca Tabu
     - Simulated Annealing
-- **A maior parte são algoritmos bioinspirados!**
+- A maior parte são algoritmos bioinspirados!
     - A natureza resolveu problemas complexos durante bilhões de anos de evolução. Podemos copiar esses mecanismos para resolver problemas computacionais difíceis.
     - Vantagens:
         - Muito flexíveis: funcionam em problemas difíceis.
@@ -280,7 +278,7 @@ function simulated_annealing() is
         3. Aplicar Crossover para gerar Filhos.
             - Ex.:
               - São sorteados dois indivíduos, os pais: p1 e p2
-              - Se a taxa de crossover for satisfeita**,** eles serão cruzados para gerar dois novos indivíduos, c1 e c2, que serão inseridos na nova população.
+              - Se a taxa de crossover for satisfeita, eles serão cruzados para gerar dois novos indivíduos, c1 e c2, que serão inseridos na nova população.
                   - O cruzamento pode ocorrer de várias formas: se os atributos dos indivíduos (os genes) forem discretos, pega metade de p1 e metade de p2, se forem contínuos, pode-se aplicar alguma ponderação entre os pais, por exemplo.
               - Se a taxa de crossover não for satisfeita, os pais, p1 e p2, serão inseridos na população.
               - Esse passo é repetido até criar uma nova população de mesmo tamanho.
