@@ -335,10 +335,7 @@ function simulated_annealing() is
 - Uma topologia global pode convergir para um mínimo/máximo local de maneira mais fácil do que a topologia local.
 - A ideia do PSO é buscar a solução ótima alterando as trajetórias dos indivíduos da sua população. Para fazer isso, o algoritmo utiliza a velocidade e posição de cada partícula.
 - Atualização de velocidade:
-  - Principal equação do PSO
-    $$
-    v_{k+1} = wv_k + c_1 r_1 (pbest_k - x_k) + c_2 r_2 (gbest - x_k)
-    $$
+  - Principal equação do PSO: $v_{k+1} = wv_k + c_1 r_1 (pbest_k - x_k) + c_2 r_2 (gbest - x_k)$
   - Onde:
     - $w$: coeficiente de inércia
     - $c_1$: componente cognitiva (referente ao indivíduo)
